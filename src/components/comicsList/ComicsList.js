@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/errorMessage';
 import useMarvelService from '../../services/MarvelService';
+
 import './comicsList.scss';
-import uw from '../../resources/img/UW.png';
-import xMen from '../../resources/img/x-men.png';
+
 
 const ComicsList = () => {
 
@@ -50,7 +51,7 @@ const ComicsList = () => {
                     className="comics__item"
                     ref={(el) => itemRefs.current[i] = el}
                     key={i}>
-                        <a href="#">
+                        <Link to={`/comics/${comic.id}`}>
                             <img 
                                 src={comic.image} 
                                 alt={comic.title} 
@@ -58,7 +59,7 @@ const ComicsList = () => {
                                 style={imgStyle}/>
                             <div className="comics__item-name">{comic.title}</div>
                             <div className="comics__item-price">{comic.price}</div>
-                        </a>
+                        </Link>
                 </li>
                
             )
