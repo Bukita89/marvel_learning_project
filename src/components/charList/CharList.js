@@ -53,7 +53,7 @@ const CharList = (props) => {
                 <li 
                     className="char__item"
                     ref={(el) => itemRefs.current[i] = el}
-                    key={char.id}
+                    key={i}
                     onClick={() => {
                         props.onCharSelected(char.id);
                         focusOnItem(i);
